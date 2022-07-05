@@ -43,9 +43,11 @@ class Actual extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_res','inn','res','fio','adres','email','tel','doc1','id_request',
-                'doc2','doc3','doc4','id_unique','status','date'], 'safe'],
+            [['id_res','inn','res','fio','adres','email','tel','doc1','id_request','doc2','doc3','doc4','id_unique','status','date'], 'safe'],
             [['res','fio','id_res','doc1','doc2','adres'],'required','message'=>'Поле обов’язкове'],
+            ['email', 'email' ],
+            ['adres', 'string', 'max' => 100],
+            ['tel', 'match', 'pattern' => '^[0-9\-\+]{9,12}$', 'message' => 'Невірно вказано номер телефона, потрібно 380ХХХХХХХХХ' ],
             [['doc1'],'file','skipOnEmpty' => true,'extensions'=> ['jpg', 'jpeg', 'png', 'pdf']],
             [['doc2'],'file','skipOnEmpty' => true,'extensions'=> ['jpg', 'jpeg', 'png', 'pdf']],
             [['doc3'],'file','skipOnEmpty' => true,'extensions'=> ['jpg', 'jpeg', 'png', 'pdf']],

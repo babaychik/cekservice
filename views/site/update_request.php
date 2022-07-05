@@ -106,9 +106,12 @@ $arr1 = ['- Виберіть РЕМ','Дніпровські РЕМ  (м. Дні
         <?= $form->field($model, 'fio')->textarea() ?>
         <?= $form->field($model, 'adres')->textarea() ?>
 
+			
+
         <?= $form->field($model, 'tel',['inputTemplate' => '<div class="input-group"><span class="input-group-addon">'
-            . '<span class="glyphicon glyphicon-phone"></span></span>{input}</div>'])->textInput(
-            ['maxlength' => true,'onBlur' => 'norm_tel($(this).val())']) ?>
+            . '<span class="glyphicon glyphicon-phone"></span></span>{input}</div>'])->textInput(['maxlength' => true,'onBlur' => 'norm_tel($(this).val())']); 
+    
+            ?>
 
         <?= $form->field($model, 'email',
             ['inputTemplate' => '<div class="input-group"><span class="input-group-addon">'
